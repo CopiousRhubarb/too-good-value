@@ -2,12 +2,7 @@ public class TooGood
 {
     public static void main(String[] args)
     {
-        //Caitlin - Intro content
-        System.out.println("Too Good to Go");
-        System.out.println("Congradulations! You bought 1 surprise bag from Blackmarket Bakery in Oceanside.");
-        System.out.println("Your order was $5.99.");
-        System.out.println("Let's figure out how much money you saved.");
-        System.out.println("Below is a list of items on the menu. Please select the item number for each item in your surpise bag.");
+        // DECLARATION + INITIALIZATION
 
         //Caitlin - an array of the baked goods you might get in a surprise bag and  an array of their prices
         String[] bakedGoods = {
@@ -39,6 +34,15 @@ public class TooGood
         final double COST_OF_TGTG = 5.99;
         double amount_saved;
 
+        //Caitlin - Intro content
+        System.out.println("Too Good to Go");
+        System.out.println("Congratulations! You bought 1 surprise bag from Blackmarket Bakery in Oceanside.");
+        System.out.printf("Your order was $%.2f.%n", COST_OF_TGTG);
+        System.out.println("Let's figure out how much money you saved.");
+        System.out.println("Below is a list of items on the menu. Please select the item number for each item in your surpise bag.");
+        System.out.println();
+
+        // INPUT + CALCULATION
         // Ryan - User input and calculation loop
         do
         {
@@ -56,6 +60,8 @@ public class TooGood
         } while (choice != -1);
 
         amount_saved = totalValue - COST_OF_TGTG;
+
+        // OUTPUT
         System.out.printf("Too Good To Go costs $%.2f%n", COST_OF_TGTG);
         System.out.printf("You received baked goods with a total value of $%.2f%n", totalValue);
         System.out.printf("You saved $%.2f while preventing unnecessary food waste!", amount_saved);
