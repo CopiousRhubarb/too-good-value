@@ -22,7 +22,7 @@ public class TooGood
                 "Cookie",
                 "Loaf of Bread"
         };
-        double[] prices = {
+        double[] prices = { // Parallel array to bakedGoods, e.g., price of Scone is $4.80
                 4.5,
                 6.5,
                 7.0,
