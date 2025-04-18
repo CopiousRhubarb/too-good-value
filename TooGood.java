@@ -46,9 +46,12 @@ public class TooGood
             choice = UtilityBelt.readInt(
                     "Choose the number corresponding to the baked good you received, or -1 if done: ",
                     -1, 9);
-            totalValue += prices[choice];
+            if (choice >= 0)
+            {
+                totalValue += prices[choice];
+            }
         } while (choice != -1);
 
-        System.out.printf("$%.2f",totalValue);
+        System.out.printf("$%.2f", totalValue);
     }
 }
