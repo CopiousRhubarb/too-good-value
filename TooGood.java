@@ -36,7 +36,10 @@ public class TooGood
         };
         int choice;
         double totalValue = 0.0;
+        final double COST_OF_TGTG = 5.99;
+        double amount_saved;
 
+        // Ryan - User input and calculation loop
         do
         {
             for (int i = 0; i < bakedGoods.length; i++)
@@ -52,6 +55,9 @@ public class TooGood
             }
         } while (choice != -1);
 
-        System.out.printf("$%.2f", totalValue);
+        amount_saved = totalValue - COST_OF_TGTG;
+        System.out.printf("Too Good To Go costs $%.2f%n", COST_OF_TGTG);
+        System.out.printf("You received baked goods with a total value of $%.2f%n", totalValue);
+        System.out.printf("You saved $%.2f while preventing unnecessary food waste!", amount_saved);
     }
 }
