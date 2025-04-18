@@ -12,7 +12,7 @@ public class TooGood {
  
         for(int i=0; i < bakedGoods.length; i++)
         {
-            System.out.println(bakedGoods[i]);
+            System.out.println(i+". "+bakedGoods[i]);
         }
         
     }
