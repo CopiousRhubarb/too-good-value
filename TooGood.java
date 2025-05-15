@@ -1,10 +1,12 @@
 public class TooGood
 {
+    static final double COST_OF_TGTG = 5.99;
+    
     public static void main(String[] args)
     {
         // DECLARATION + INITIALIZATION
 
-        //Caitlin - an array of the baked goods you might get in a surprise bag and  an array of their prices
+        //Caitlin - an array of the baked goods you might get in a surprise bag and an array of their prices
         String[] bakedGoods = {
                 "Croissant",
                 "Almond Croissant",
@@ -31,11 +33,11 @@ public class TooGood
         };
         int choice;
         double totalValue = 0.0;
-        final double COST_OF_TGTG = 5.99;
-        double amountSaved;
+        //CW: moved constant to be static
+        //CW: moved amountSaved since only used inside one method, put it there
 
         //Caitlin - Intro content
-        printIntro(COST_OF_TGTG);
+        printIntro();
 
         // INPUT + CALCULATION
         // Ryan - User input and calculation loop
@@ -52,21 +54,22 @@ public class TooGood
             }
         } while (choice != -1);
 
-        amountSaved = totalValue - COST_OF_TGTG;
+        
 
         // OUTPUT
-        printSavings(COST_OF_TGTG, totalValue, amountSaved);
+        printSavings(totalValue);
     }
 
-    private static void printSavings(double COST_OF_TGTG, double totalValue, double amountSaved)
+    public static void printSavings(double totalValue) //CW: removed excess variables
     {
+        double amountSaved = totalValue - COST_OF_TGTG;
         System.out.println();
         System.out.printf("Too Good To Go costs $%.2f%n", COST_OF_TGTG);
         System.out.printf("You received baked goods with a total value of $%.2f%n", totalValue);
         System.out.printf("You saved $%.2f while preventing unnecessary food waste!", amountSaved);
     }
 
-    private static void printIntro(double COST_OF_TGTG)
+    public static void printIntro() //CW: removed parameter since now a static variable
     {
         System.out.println("Too Good to Go");
         System.out.println("Congratulations! You bought 1 surprise bag from Blackmarket Bakery in Oceanside.");
@@ -78,13 +81,15 @@ public class TooGood
 
     public static void printMenu(String[] bakedGoods)
     {
-        String topBorder = String.format("╔%36s╗", " ").replace(" ", "═");
+        String topBorder = String.format("╔%36s╗", " ").replace(" ", "═"); // Pad with whitespace then replace with border
         String bottomBorder = String.format("╚%36s╝", " ").replace(" ", "═");
 
         System.out.println(topBorder);
         for (int i = 0; i < bakedGoods.length; i++)
         {
-            System.out.printf("║%-36s║%n", " " + i + ". " + bakedGoods[i]);
+            //System.out.printf("║%-36s║%n", " " + i + ". " + bakedGoods[i]);
+            //CW: could replace concatenation above with the line below
+            System.out.printf("║ %d. %-32s║%n", i, bakedGoods[i]);
         }
         System.out.println(bottomBorder);
     }
