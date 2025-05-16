@@ -9,14 +9,17 @@
   -----------------------------------------
   - name : String
   - price : double
+  - itemNumber : int
   -----------------------------------------
   + MenuItem(name : String, cost : double)
   + getName() : String
   + getPrice() : double
+  + getItemNumber() : int
 
   + setName(name : String) : void
   + setPrice(price : double) : void
-  + setAll(name : String, price : double) : void
+  + setItemNumber(itemNumber : int) : void
+  + setAll(name : String, price : double, itemNumber : int) : void
 **/ 
 
 public class MenuItem {
@@ -24,36 +27,58 @@ public class MenuItem {
     /***** INSTANCE VARIABLES *****/
     private String name;
     private double price;
+    private int itemNumber;
 
     /***** CONSTRUCTOR *****/
 
-    public MenuItem(String name, double price){
+    public MenuItem(String name, double price, int itemNumber){
         this.name = name;
         this.price = price;
+        this.itemNumber = itemNumber;
     }
 
     /***** ACCESSORS *****/
 
-    public getName(){
+     // @return String representing name to the get function
+    public String getName(){
         this.name = name;
     }
 
-    public getPrice(){
+     // @return double representing price to the get function
+    public double getPrice(){
         this.price = price;
+    }
+
+     // @return int representing itemNumber to the get function
+     public int getItemNumber(){
+        this.itemNumber = itemNumber;
     }
 
     /***** MUTATORS *****/
 
+    //sets the name to the set function @param name is valid and exists
     public setName(String name){
         this.name = name;
     }
 
+    //sets the price to the set function @param price is valid and exists
     public setPrice(double price){
         this.price = price;
     }
 
-    public setAll(String name, double price){
+    //sets the itemNumber to the set function @param itemNumber is valid and exists 
+    public setItemNumber(int itemNumber){
+        this.itemNumber = itemNumber;
+    }
+    
+    /* sets all data for the object
+     * @param name String is representing item name is valid and exists
+     * @param price double represents the listed full price of an item is valid and exists
+     * @param itemNumber int represents the position on the menu is valid and exists
+     */
+    public setAll(String name, double price, int itemNumber){
         this.name = name;
         this.price = price;
+        this.itemNumber = itemNumber;
     }
 }
