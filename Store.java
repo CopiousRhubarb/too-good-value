@@ -16,7 +16,7 @@
 //   500+ meals saved
 //   what you could get: bread & pastries
 //   overall experience based on 218 recent reviews 4.8 stars, pickup experience 4.9, food quality 4.9, variety of contents 4.8 food quantity 4.8 
-// menu: Croissant $4, Chocolat croissant 4.50, Pestachio cake $6, Braided Cinnamon Roll $5, strawberry lemon muffin $3
+// menu: Croissant $5, Vanilla bean stuffed croissant $7.25, Passion Guava cream cheese stuffed croissant $7.25, evoo pistachio blood orange cake $6, lemon tart $4, cocoa quinoa cookie $3.5, gf banana chocolate chip muffin $5.5, raspberry shortbread cookie $2, dirty chocolate chip cooke $3.5
 
 //   Blackmarket Bakery Oceanside
 //   $18 value, $5.99 surprise bag
