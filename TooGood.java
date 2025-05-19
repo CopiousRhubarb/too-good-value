@@ -1,7 +1,7 @@
 public class TooGood
 {
     static final double COST_OF_TGTG = 5.99;
-    
+
     public static void main(String[] args)
     {
         // DECLARATION + INITIALIZATION
@@ -45,16 +45,17 @@ public class TooGood
         {
             printMenu(bakedGoods);
 
-            choice = UtilityBelt.readInt(
-                    "Choose the number corresponding to the baked good you received, or -1 if done: ",
-                    -1, 9);
+            choice = 0;
+            // TODO: Refactor the below to use Scanner class directly
+//            choice = UtilityBelt.readInt(
+//                    "Choose the number corresponding to the baked good you received, or -1 if done: ",
+//                    -1, 9);
             if (choice >= 0)
             {
                 totalValue += prices[choice];
             }
         } while (choice != -1);
 
-        
 
         // OUTPUT
         printSavings(totalValue);

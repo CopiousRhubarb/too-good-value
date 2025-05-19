@@ -1,84 +1,186 @@
 /**
  * Represents one menu item on the menu in a store
  * Authors: Caitlin Lim, Ryan Moore
- * @version  1.0
+ *
+ * @version 1.0
  ***/
 
- /**
-  * UML CLASS DIAGRAM: MenuItem
-  -----------------------------------------
-  - name : String
-  - price : double
-  - itemNumber : int
-  -----------------------------------------
-  + MenuItem(name : String, cost : double)
-  + getName() : String
-  + getPrice() : double
-  + getItemNumber() : int
 
-  + setName(name : String) : void
-  + setPrice(price : double) : void
-  + setItemNumber(itemNumber : int) : void
-  + setAll(name : String, price : double, itemNumber : int) : void
-**/ 
+/**
+ * UML CLASS DIAGRAM: MenuItem
+ -----------------------------------------
+ - name : String
+ - price : double
+ - category : String
+ + CATEGORY_LIST : String[]
+ -----------------------------------------
+ + MenuItem()
+ + MenuItem(name : String, price : double, category : String)
+ + getName() : String
+ + getPrice() : double
+ + getCategory() : String
+ + setName(name : String) : void
+ + setPrice(price : double) : boolean
+ + setCategory(category : String) : boolean
+ + setAll(name : String, price : double) : void
+ + equals(o : Object) : boolean
+ + toString() : String
+ **/
 
-public class MenuItem {
+public class MenuItem
+{
 
     /***** INSTANCE VARIABLES *****/
     private String name;
     private double price;
-    private int itemNumber;
+    private String category;
+
+    public static String[] ALLOWED_CATEGORIES = new String[]{"Bagel","Croissant", "Bread", "Cookie", "Cake", "Scone"};
 
     /***** CONSTRUCTOR *****/
-
-    public MenuItem(String name, double price, int itemNumber){
-        this.name = name;
-        this.price = price;
-        this.itemNumber = itemNumber;
+    public MenuItem()
+    {
+        this.setName("Unknown");
+        this.setPrice(1.0);
+        this.setCategory("Bagel");
     }
 
+    public MenuItem(String name, double price, String category)
+    {
+        this.setName(name);
+        this.setPrice(price);
+        this.setCategory(category);
+    }
+
+    public MenuItem(MenuItem original)
+    {
+        if (original != null)
+        {
+            this.setAll(original.name, original.price, original.category);
+        }
+        else
+        {
+            System.err.println("ERROR: attempt to copy null object");
+            System.exit(0);
+        }
+    }
     /***** ACCESSORS *****/
 
-     // @return String representing name to the get function
-    public String getName(){
-        this.name = name;
+    /**
+     * Gets the name of the menuItem
+     *
+     * @return The name of the menuItem
+     */
+    public String getName()
+    {
+        return name;
     }
 
-     // @return double representing price to the get function
-    public double getPrice(){
-        this.price = price;
+    /**
+     * Gets the price of the menuItem in USD
+     * @return The price of the menuItem in USD
+     */
+    public double getPrice()
+    {
+        return price;
     }
 
-     // @return int representing itemNumber to the get function
-     public int getItemNumber(){
-        this.itemNumber = itemNumber;
+    /**
+     * Gets the category of the item
+     *
+     * @return the category of the item
+     */
+    public String getCategory()
+    {
+        return category;
     }
 
     /***** MUTATORS *****/
 
-    //sets the name to the set function @param name is valid and exists
-    public setName(String name){
-        this.name = name;
-    }
-
-    //sets the price to the set function @param price is valid and exists
-    public setPrice(double price){
-        this.price = price;
-    }
-
-    //sets the itemNumber to the set function @param itemNumber is valid and exists 
-    public setItemNumber(int itemNumber){
-        this.itemNumber = itemNumber;
-    }
-    
-    /* sets all data for the object
-     * @param name String is representing item name is valid and exists
-     * @param price double represents the listed full price of an item is valid and exists
-     * @param itemNumber int represents the position on the menu is valid and exists
+    /**
+     * Sets the name of the menuItem
+     *
+     * @param name The name of the menuItem
      */
-    public setAll(String name, double price, int itemNumber){
+    public void setName(String name)
+    {
         this.name = name;
-        this.price = price;
-        this.itemNumber = itemNumber;
+    }
+
+    /**
+     * Sets the price of the menuItem. Error-checking ensures a positive double value
+     *
+     * @param price The menu price of the menuItem
+     */
+    public boolean setPrice(double price)
+    {
+        if (price <= 0.0)
+        {
+            return false;
+        }
+        else
+        {
+            this.price = price;
+            return true;
+        }
+    }
+
+    /**
+     * Sets the category of the menuItem. Must exist in ALLOWED_CATEGORIES
+     * @param category Category of the menuItem
+     * @return boolean indicating whether the set was successful
+     */
+    public boolean setCategory(String category)
+    {
+        boolean isValid = false;
+
+        for (String allowedCategory : ALLOWED_CATEGORIES)
+        {
+            if (category.equals(allowedCategory))
+            {
+                isValid = true;
+                break;
+            }
+        }
+        if (isValid)
+        {
+            this.category = category;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * Sets all fields
+     *
+     * @param name  Name of the item
+     * @param price Price of the item in USD
+     */
+    public void setAll(String name, double price, String category)
+    {
+        this.setName(name);
+        this.setPrice(price);
+        this.setCategory(category);
+    }
+
+    /**
+     * Required equals method for model-like classes
+     * @param o object to be compared
+     * @return true if equal, false if not
+     */
+    public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return this.getPrice() == menuItem.getPrice() && this.getName().equals(menuItem.getName()) &&
+                this.getCategory().equals(menuItem.getCategory());
+    }
+
+    public String toString()
+    {
+        return String.format("Name: %s, Price: $%.2f, Category: %s", this.getName(), this.getPrice(), this.getCategory());
     }
 }
