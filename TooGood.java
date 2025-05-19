@@ -6,6 +6,54 @@ public class TooGood
     {
         // DECLARATION + INITIALIZATION
 
+        // TODO: Declare Store and MenuItem objects to contain menus
+            /*
+            Bound:
+                Bagels:
+                    - Plain
+                    - Everything
+                    - Jalapeno Cheddar
+                    - Everything Cheddar
+                Strawberry Lemon Scone
+                Choco chip cookie
+
+             */
+        Store[] Stores = new Store[3];
+        Stores[0] = new Store("Bound Coffee Company",
+                new MenuItem[]{
+                        new MenuItem("Plain Bagel", 5.0, "Bagel"),
+                        new MenuItem("Everything Bagel", 5.0, "Bagel"),
+                        new MenuItem("Cheddar Everything Bagel", 5.0, "Bagel"),
+                        new MenuItem("Cheddar Jalapeno Bagel", 5.0, "Bagel"),
+                        new MenuItem("Chocolate Chip Cookie", 3.0, "Cookie"),
+                        new MenuItem("Strawberry Lemon Scone", 5.25, "Scone")
+                }, 4.99, 15.0);
+        Stores[1] = new Store("Rose Cafe",
+                new MenuItem[]{
+                        new MenuItem("Plain Croissant", 5.0, "Croissant"),
+                        new MenuItem("Vanilla Bean Stuffed Croissant", 7.25, "Croissant"),
+                        new MenuItem("Passion Guava Cream Cheese Stuffed Croissant", 7.25, "Croissant"),
+                        new MenuItem("Pistachio Blood Orange Cake", 6.0, "Cake"),
+                        new MenuItem("Lemon Tart", 4.0, "Tart"),
+                        new MenuItem("Cocoa Quinoa Cookie", 3.5, "Cookie"),
+                        new MenuItem("Gluten Free Banana Chocolate Chip Muffin", 5.5, "Muffin"),
+                        new MenuItem("Raspberry Shorbread Cookie", 2.0, "Cookie"),
+                        new MenuItem("Dirty Chocolate Chip Cookie", 3.5, "Cookie")
+                }, 5.99, 18.0);
+        Stores[2] = new Store("Blackmarket Bakery Oceanside",
+                new MenuItem[]{
+                        new MenuItem("Plain Croissant", 4.5, "Croissant"),
+                        new MenuItem("Almond Croissant", 6.5, "Croissant"),
+                        new MenuItem("Ham and Swiss Croissant", 7.0, "Croissant"),
+                        new MenuItem("Tomato Provolone Croissant", 5.5, "Croissant"),
+                        new MenuItem("Blueberry Scone", 4.8, "Scone"),
+                        new MenuItem("Almond Cherry Bar", 5.8, "Bar"),
+                        new MenuItem("Cinnamon Sweet Roll", 6.0, "Cinnamon Roll"),
+                        new MenuItem("Banana Nut Muffin", 4.3, "Muffin"),
+                        new MenuItem("Chocolate Chip Cookie", 4.5, "Cookie"),
+                        new MenuItem("Loaf of Bread", 7.0, "Bread")
+                }, 5.99, 18);
+
         //Caitlin - an array of the baked goods you might get in a surprise bag and an array of their prices
         String[] bakedGoods = {
                 "Croissant",

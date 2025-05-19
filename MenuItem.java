@@ -35,7 +35,9 @@ public class MenuItem
     private double price;
     private String category;
 
-    public static String[] ALLOWED_CATEGORIES = new String[]{"Bagel","Croissant", "Bread", "Cookie", "Cake", "Scone"};
+    public static String[] ALLOWED_CATEGORIES = new String[]{
+            "Bagel","Croissant", "Bread", "Cookie", "Cake", "Scone", "Tart","Muffin", "Bar", "Cinnamon Roll"
+    };
 
     /***** CONSTRUCTOR *****/
     public MenuItem()
