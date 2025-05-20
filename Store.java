@@ -295,6 +295,22 @@ public class Store
         result += String.format("Surprise Bag Cost: %s%nAlleged Bag Value: %s", surpriseBagCost, allegedBagValue);
         return result;
     }
+
+    public String formatMenu()
+    {
+        String result = "╔" + "═".repeat(72) + "╗\n";
+        result += String.format("║%36s%36s║%n", this.getName(),"");
+        result += "╠" + "═".repeat(72) + "╣\n";
+
+        for (int i = 0; i < this.getMenu().length; i++)
+        {
+            result += String.format("║%2d │ %-67s║%n", i, this.getMenu()[i].getName());
+        }
+        result += "╚" + "═".repeat(72) + "╝\n";
+
+        return result;
+    }
+
     /**
      * Helper method since the menu instance variable is a mutable object and thus requires a deep copy
      *
@@ -310,4 +326,5 @@ public class Store
         }
         return copy;
     }
+
 }
