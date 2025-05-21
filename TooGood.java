@@ -48,6 +48,7 @@ public class TooGood
         Store storeChoice;
         MenuItem[] bag = new MenuItem[10]; // partially filled array
         int bagSize = 0;
+        double actualBagValue;
 
 
         System.out.println(formatStores(stores));
@@ -76,9 +77,31 @@ public class TooGood
             print "[category]: [count]"
         */
 
-        // TODO: Calculate bag cost
+        System.out.println();
+        System.out.println(formatCategoryCount(bag, bagSize));
+        System.out.println();
 
-        // TODO: Compare bag cost to actual cost and alleged value
+        actualBagValue = calculateActualBagValue(bag, bagSize);
+        System.out.printf("The total value of the items you received in the bag: $%.2f%n", actualBagValue);
+        System.out.printf("Alleged value of any given surprise bag from %s: $%.2f%n", storeChoice.getName(),
+                storeChoice.getAllegedBagValue());
+
+        if (actualBagValue > storeChoice.getAllegedBagValue())
+        {
+            System.out.printf("What a deal! Your bag was worth $%.2f more than the alleged value listed by %s%n",
+                    actualBagValue - storeChoice.getAllegedBagValue(), storeChoice.getName());
+        }
+        else if (actualBagValue < storeChoice.getAllegedBagValue())
+        {
+            System.out.printf("Oops! Your bag was actually worth $%.2f less than the alleged value listed by %s%n",
+                    storeChoice.getAllegedBagValue() - actualBagValue, storeChoice.getName());
+        }
+        else
+        {
+            System.out.printf("Wow! Your bag exactly matches the alleged value listed by %s. What are the chances?!%n",
+                    storeChoice.getName());
+        }
+
 
 //
 //        //Caitlin - an array of the baked goods you might get in a surprise bag and an array of their prices
@@ -205,6 +228,44 @@ public class TooGood
         } while (!(result >= -1 && result <= store.getMenu().length));
 
         return result;
+    }
+
+    public static String formatCategoryCount(MenuItem[] bag, int bagSize)
+    {
+        int categoryCount;
+        String result = "";
+
+        for (String category : MenuItem.ALLOWED_CATEGORIES)
+        {
+            categoryCount = 0;
+            for (int i = 0; i < bagSize; i++)
+            {
+                if (bag[i].getCategory().equals(category))
+                {
+                    categoryCount++;
+                }
+            }
+
+            if (categoryCount > 0)
+            {
+                result += String.format("%-15s: %d%n", category, categoryCount);
+            }
+
+        }
+
+        return result;
+    }
+
+    public static double calculateActualBagValue(MenuItem[] bag, int bagSize)
+    {
+        double cost = 0.0;
+
+        for (int i = 0; i < bagSize; i++)
+        {
+            cost += bag[i].getPrice();
+        }
+
+        return cost;
     }
 
 }
