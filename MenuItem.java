@@ -30,7 +30,7 @@ public class MenuItem {
     private int itemNumber;
 
     /***** CONSTRUCTOR *****/
-
+    // No argument constructor assigns default values for each instance variable
     public MenuItem(String name, double price, int itemNumber){
         this.name = name;
         this.price = price;

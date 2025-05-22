@@ -66,6 +66,7 @@ public class Store
     private int allegedBagValue;
 
     /***** CONSTRUCTOR *****/
+    // No argument constructor assigns default values for each instance variable
     public Store(String name, MenuItem[] menu, double surpriseBagCost, int allegedBagValue) {
         this.name = name;
         this.menu = menu;
