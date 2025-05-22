@@ -50,6 +50,8 @@ public class TooGood
         int bagSize = 0;
         double actualBagValue;
 
+        printIntro();
+
 
         System.out.println(formatStores(stores));
         choice = promptStore(stores, keyboard);
@@ -101,7 +103,17 @@ public class TooGood
             System.out.printf("Wow! Your bag exactly matches the alleged value listed by %s. What are the chances?!%n",
                     storeChoice.getName());
         }
-
+    }
+    public static void printIntro() //CW: removed parameter since now a static variable
+    {
+        System.out.println();
+        System.out.println("Too Good to Go");
+        System.out.println();
+        System.out.println("Congratulations! You bought a surprise bag! Buying surprise bags helps reduce food waste AND provide you with tasty treats.");
+        System.out.println("This app helps you figure out how much money you saved by comparing what you get from the bakery to how much it would cost to buy it all at full price.");
+        System.out.println("To begin, please choose which bag you bought today.");
+        System.out.println();
+   }
 
 //
 //        //Caitlin - an array of the baked goods you might get in a surprise bag and an array of their prices
@@ -167,9 +179,9 @@ public class TooGood
 //        System.out.printf("You received baked goods with a total value of $%.2f%n", totalValue);
 //        System.out.printf("You saved $%.2f while preventing unnecessary food waste!", amountSaved);
 //    }
-//
-//    public static void printIntro() //CW: removed parameter since now a static variable
-//    {
+// //
+//     public static void printIntro() //CW: removed parameter since now a static variable
+//     {
 //        System.out.println("Too Good to Go");
 //        System.out.println("Congratulations! You bought 1 surprise bag from Blackmarket Bakery in Oceanside.");
 //        System.out.printf("Your order was $%.2f.%n", COST_OF_TGTG);
@@ -177,7 +189,7 @@ public class TooGood
 //        System.out.println("Below is a list of items on the menu. Please select the item number for each item in your surpise bag.");
 //        System.out.println();
 //    }
-//
+// //
 //    public static void printMenu(String[] bakedGoods)
 //    {
 //        String topBorder = String.format("╔%36s╗", " ").replace(" ", "═"); // Pad with whitespace then replace with border
@@ -191,7 +203,7 @@ public class TooGood
 //            System.out.printf("║ %d. %-32s║%n", i, bakedGoods[i]);
 //        }
 //        System.out.println(bottomBorder);
-    }
+  //  }
 
     public static String formatStores(Store[] stores)
     {
